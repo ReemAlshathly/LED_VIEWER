@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة تعريف بشخص</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .button {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>اسم الشخص</h1>
+    <img src="path-to-your-image.jpg" alt="صورة الشخص">
+    
+    <div>
+        <button class="button" onclick="showVideo('video1.mp4')">فيديو 1</button>
+        <button class="button" onclick="showVideo('video2.mp4')">فيديو 2</button>
+        <button class="button" onclick="showVideo('video3.mp4')">فيديو 3</button>
+    </div>
+
+    <script>
+        function showVideo(videoSrc) {
+            const ledScreen = window.open('', 'LEDScreen', 'width=800,height=600');
+            ledScreen.document.write(`
+                <html>
+                    <head>
+                        <title>شاشة LED</title>
+                    </head>
+                    <body style="margin:0;display:flex;justify-content:center;align-items:center;height:100vh;">
+                        <video width="100%" controls autoplay>
+                            <source src="${videoSrc}" type="video/mp4">
+                            متصفحك لا يدعم تشغيل الفيديو.
+                        </video>
+                    </body>
+                </html>
+            `);
+            ledScreen.document.close();
+        }
+    </script>
+
+</body>
+</html>
